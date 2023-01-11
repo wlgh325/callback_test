@@ -32,16 +32,17 @@ jobs:
 
     - name: Remove old server in ~/soruce (ignore error)
       run: |
-        rm -rf ~/source || true
+        rm -rf ~/callback_test || true
 
     - name: Copy new server to ~/soruce
       run: |
-        mkdir -p ~/source
-        cp -R ./ ~/source
+        mkdir -p ~/callback_test
+        cp -R ./ ~/callback_test
         
     - name: Run new server (in background)
       env:
         RUNNER_TRACKING_ID: ""
       run: |
         cd ~/source
+        npm build
         nohup node ./dist/main.js </dev/null >/dev/null 2>&1 &
