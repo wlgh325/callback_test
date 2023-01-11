@@ -44,5 +44,5 @@ jobs:
         RUNNER_TRACKING_ID: ""
       run: |
         cd ~/source
-        npm build
+        npm run build
         nohup node ./dist/main.js </dev/null >/dev/null 2>&1 &
