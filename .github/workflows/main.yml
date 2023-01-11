@@ -30,7 +30,7 @@ jobs:
       run: |
         killall -9 node || true
 
-    - name: Remove old server in ~/soruce (ignore error)
+    - name: Remove old server in ~/callback_test (ignore error)
       run: |
         rm -rf ~/callback_test || true
 
@@ -43,6 +43,6 @@ jobs:
       env:
         RUNNER_TRACKING_ID: ""
       run: |
-        cd ~/source
+        cd ~/callback_test
         npm run build
         nohup node ./dist/main.js </dev/null >/dev/null 2>&1 &
