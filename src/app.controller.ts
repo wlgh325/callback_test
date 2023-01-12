@@ -1,12 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Body, Controller, Get, Post, Req } from "@nestjs/common";
+import { AppService } from "./app.service";
+import { Request } from "express";
 
-@Controller()
+@Controller("callback")
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Post()
+  async postCallbackTest(@Body() body, @Req() req: Request) {
+    return { msgId: "aaa-bbbb-ccc-eee-ddd", data: body };
   }
 }
