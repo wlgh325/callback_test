@@ -1,7 +1,8 @@
 name: Release Drafter
 on:
-  pull_request:
-    types: [closed]
+  push:
+    branches:
+      - main
 jobs:
   update_release_draft:
     runs-on: ubuntu-latest
